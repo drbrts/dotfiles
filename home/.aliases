@@ -11,7 +11,6 @@ alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
-alias g="git"
 alias h="history"
 alias j="jobs"
 alias v="vim"
@@ -19,6 +18,34 @@ alias m="mate ."
 alias s="subl ."
 alias o="open"
 alias oo="open ."
+alias quack="ack --Qui"
+alias cd="cd -P"
+alias rm="rm -r"
+alias cp="cp -r"
+alias mkdir="mkdir -p"
+
+# Git Shortcuts
+alias g='git'
+alias gad='git add .'
+alias gam='git cam' # commit all with message
+alias gao='git add'
+alias gbr='git branch'
+alias gca='git commit -a'
+alias gci='git commit'
+alias gco='git checkout'
+alias gdi='git diff'
+alias gdp='git clean -dfq; git reset -q --hard'
+alias gfe='git fetch'
+alias gin='git cin'
+alias gim='git cim' # commit with message
+alias gpl='git pob' # pull origin branch
+alias gps='git push origin HEAD'
+alias gra='git reset HEAD .'
+alias grm='git reset HEAD'
+alias gsl='git stash list'
+alias gst='git status'
+alias glg='git log -n 1'
+alias cdr='cd $(git root)'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -28,13 +55,13 @@ else # OS X `ls`
 fi
 
 # List all files colorized in long format
-alias l="ls -l ${colorflag}"
+alias ll='ls -AlF ${colorflag}'
 
 # List all files colorized in long format, including dot files
-alias la="ls -la ${colorflag}"
+alias l="ls -CF ${colorflag}"
 
 # List only directories
-alias lsd='ls -l ${colorflag} | grep "^d"'
+alias lld='ls -AlFd */ ${colorflag}'
 
 # Always use color output for `ls`
 alias ls="command ls ${colorflag}"
