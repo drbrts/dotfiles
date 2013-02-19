@@ -20,11 +20,11 @@
 [alias]
 	# View the SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph
-	
+
   # View the current working tree status using the short format
 	s  = status -s
 	st = status
-  
+
   # Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
   dc = diff --cached
@@ -83,9 +83,6 @@
 
 	# Undo a `git push`
 	undopush = push -f origin HEAD^:master
-
-
-
 
 [apply]
 	# Detect whitespace errors when applying a patch
