@@ -1,8 +1,19 @@
 # Mathias’s dotfiles
+Shamelessly stolen from [Mathias Bynes](https://github.com/mathiasbynens/dotfiles).
 
 ## Installation
 
-### Using Git and the bootstrap script
+### Software
+* XCode (and [Command Line Tools](https://developer.apple.com/downloads/index.action?name=for%20Xcode%20-))
+* [Homebrew](http://mxcl.github.com/homebrew/)
+* [Dropbox](https://www.dropbox.com/home)
+
+### Using [Homesick](https://github.com/technicalpickles/homesick).
+```bash
+gem install homesick
+homesick clone sorahn/dotfiles
+homesick symlink sorahn/dotfiles
+```
 
 You can clone the repository wherever you want. (I like to keep it in `~/Projects/dotfiles`, with `~/dotfiles` as a symlink.) The bootstrapper script will pull in the latest version and copy the files to your home folder.
 
