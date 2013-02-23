@@ -1,4 +1,4 @@
-# Easier navigation: .., ..., ...., ....., ~ and -
+ll# Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -18,13 +18,14 @@ alias s="subl"
 alias sn="subl-n"
 alias o="open"
 alias oo="open ."
-alias quack="ack --Qui"
+alias quack="ack -Qui"
 alias cd="cd -P"
 alias rm="rm -r"
 alias cp="cp -r"
 alias mkdir="mkdir -p"
 
 # Git Shortcuts
+alias git='hub'
 alias g='git'
 alias gad='git add .'
 alias gam='git cam' # commit all with message
