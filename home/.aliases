@@ -1,4 +1,4 @@
-ll# Easier navigation: .., ..., ...., ....., ~ and -
+# Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -23,6 +23,7 @@ alias cd="cd -P"
 alias rm="rm -r"
 alias cp="cp -r"
 alias mkdir="mkdir -p"
+alias repro="source ~/.bash_profile"
 
 # Git Shortcuts
 alias git='hub'
