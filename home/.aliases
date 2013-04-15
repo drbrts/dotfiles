@@ -31,7 +31,7 @@ alias mkdir="mkdir -p"
 alias repro="source ~/.bash_profile"
 
 # Git Shortcuts
-alias git='hub'
+eval "$(hub alias -s)"
 alias g='git'
 alias gad='git add .'
 alias gam='git cam' # commit all with message
