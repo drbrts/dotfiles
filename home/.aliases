@@ -1,7 +1,7 @@
 #ssh aliases
-minecraft=`ssh minecraft@sorahn.net`
-aws=`ssh ubuntu@ec2-54-245-46-30.us-west-2.compute.amazonaws.com`
-sorahn.net=`ssh sorahn@sorahn.net`
+alias minecraft="ssh minecraft@sorahn.net"
+alias aws="ssh ubuntu@ec2-54-245-46-30.us-west-2.compute.amazonaws.com"
+alias sorahn.net="ssh sorahn@sorahn.net"
 
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
