@@ -1,3 +1,8 @@
+#ssh aliases
+minecraft=`ssh minecraft@sorahn.net`
+aws=`ssh ubuntu@ec2-54-245-46-30.us-west-2.compute.amazonaws.com`
+sorahn.net=`ssh sorahn@sorahn.net`
+
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
@@ -60,13 +65,13 @@ else # OS X `ls`
 fi
 
 # List all files colorized in long format
-alias ll='ls -AlF ${colorflag}'
+alias ll='ls -AlFh ${colorflag}'
 
 # List all files colorized in long format, including dot files
-alias l="ls -CF ${colorflag}"
+alias l="ls -CFh ${colorflag}"
 
 # List only directories
-alias lld='ls -AlFd */ ${colorflag}'
+alias lld='ls -AlFdh */ ${colorflag}'
 
 # Always use color output for `ls`
 alias ls="command ls ${colorflag}"
