@@ -1,7 +1,8 @@
+#!/bin/bash
+
 #ssh aliases
-minecraft=`ssh minecraft@sorahn.net`
-aws=`ssh ubuntu@ec2-54-245-46-30.us-west-2.compute.amazonaws.com`
-sorahn.net=`ssh sorahn@sorahn.net`
+minecraft="ssh minecraft@sorahn.net"
+aws="ssh ubuntu@ec2-54-245-46-30.us-west-2.compute.amazonaws.com"
 
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
@@ -32,30 +33,6 @@ alias rm="rm -r"
 alias cp="cp -r"
 alias mkdir="mkdir -p"
 alias repro="source ~/.bash_profile"
-
-# Git Shortcuts
-alias git='hub'
-alias g='git'
-alias gad='git add .'
-alias gam='git cam' # commit all with message
-alias gao='git add'
-alias gbr='git branch'
-alias gca='git commit -a'
-alias gci='git commit'
-alias gco='git checkout'
-alias gdi='git diff'
-alias gdp='git clean -dfq; git reset -q --hard'
-alias gfe='git fetch'
-alias gin='git cin'
-alias gim='git cim' # commit with message
-alias gpl='git pob' # pull origin branch
-alias gps='git push origin HEAD'
-alias gra='git reset HEAD .'
-alias grm='git reset HEAD'
-alias gsl='git stash list'
-alias gst='git status'
-alias glg='git log -n 1'
-alias cdr='cd $(git root)'
 
 # Node aliases
 alias hs='http-server'

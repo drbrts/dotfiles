@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Git Shortcuts
+alias g='git'
+alias go='git checkout'
+alias gad='git add .'
+alias gam='git cam' # commit all with message
+alias gao='git add'
+alias gbr='git branch'
+alias gca='git commit -a'
+alias gci='git commit'
+alias gdi='git diff'
+alias gdp='git clean -dfq; git reset -q --hard'
+alias gfe='git fetch'
+alias gin='git commit --no-edit'
+alias gim='git cim' # "!f(){ git commit -m \"$@ ($(git cb))\"; }; f"
+alias gpl='git fetch && git pull origin master'
+alias gps='git push origin HEAD'
+alias gra='git reset HEAD .'
+alias grm='git reset HEAD'
+alias gsl='git stash list'
+alias gst='git status'
+alias glg='git log -n 1'
+alias cdr='cd $(git rev-parse --show-toplevel)'
