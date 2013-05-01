@@ -7,7 +7,6 @@ fi
 # Git Shortcuts
 alias g='git'
 alias go='git checkout'
-alias gad='git add .'
 alias gam='git cam' # commit all with message
 alias gao='git add'
 alias gbr='git branch'
@@ -26,3 +25,11 @@ alias gsl='git stash list'
 alias gst='git status'
 alias glg='git log -n 1'
 alias cdr='cd $(git rev-parse --show-toplevel)'
+
+function gad()
+{
+  cmd="add ."
+  [[ "$1" ]] && cmd="add $@"
+
+  git $cmd
+}
