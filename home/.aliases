@@ -35,6 +35,11 @@ alias cp="cp -r"
 alias mkdir="mkdir -p"
 alias repro="source ~/.bash_profile"
 
+# ToDo.txt Aliases
+alias to='todo.sh -c'
+alias tad='to add'
+alias tls='to list'
+
 # Node aliases
 alias hs='http-server'
 
