@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Map
+function map() {
+  eval xargs -I{} "$@" {}
+}
+
 # Simple calculator
 function calc() {
 	local result=""

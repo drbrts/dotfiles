@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [ $(which hub) ]; then
-  eval "$(hub alias -s)"
-fi
+# if [ $(which hub) ]; then
+#   eval "$(hub alias -s)"
+# fi
 
 # Git Shortcuts
 alias g='git'

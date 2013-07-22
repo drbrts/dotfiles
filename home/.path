@@ -1,10 +1,12 @@
 #!/bin/bash
 
-PATH="/Applications/Xcode.app/Contents/Developer/usr/bin:$PATH"
+# PATH="/Applications/Xcode.app/Contents/Developer/usr/bin:$PATH"
+PATH="/Applications/Xcode5-DP.app/Contents/Developer/usr/bin:$PATH"
 PATH="/var/libs/gems/1.8/bin:$PATH"
 PATH="/usr/local/Cellar/ruby/2.0.0-p0/bin:$PATH"
 PATH="/usr/local/share/npm/bin:$PATH"
 PATH="/usr/local/bin:$PATH"
+PATH="$HOME/src/users/darylr/bin:$PATH"
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-# PATH="$HOME/src/users/darylr/bin:$PATH"
 # PATH="/usr/local/fci/bin:$PATH"
