@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Make vim the default editor
 export EDITOR="vim"
 
@@ -19,5 +21,12 @@ export LESS_TERMCAP_md="$ORANGE"
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
+
 # Sort "." files to the top
 export LC_COLLATE="C"
+
+# Always enable colored `grep` output
+export GREP_OPTIONS="--color=auto"
+
+# Link Homebrew casks in `/Applications` rather than `~/Applications`
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"

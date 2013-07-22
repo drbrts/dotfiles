@@ -19,7 +19,7 @@
 
 [alias]
 	# View the SHA, description, and history graph of the latest 20 commits
-	l = log --pretty=oneline -n 20 --graph
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
   # View the current working tree status using the short format
 	s  = status -s
@@ -81,9 +81,6 @@
 	# Interactive rebase with the given number of latest commits
 	reb = "!r() { git rebase -i HEAD~$1; }; r"
 
-	# Undo a `git push`
-	undopush = push -f origin HEAD^:master
-
 [apply]
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
@@ -134,5 +131,5 @@
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
 
-#[push]
-#	default = simple
+[push]
+	default = matching
