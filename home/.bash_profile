@@ -43,4 +43,7 @@ if [ $(which brew) ]; then
   fi
 fi
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+if [ -d '/usr/local/share/chruby' ]; then
+  source '/usr/local/share/chruby/chruby.sh'
+  source '/usr/local/share/chruby/auto.sh'
+fi
