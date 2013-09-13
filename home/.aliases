@@ -29,11 +29,12 @@ alias o="open"
 alias oo="open ."
 alias quack="ack -Qui"
 alias lack="ack -il"
-alias cd="cd -P"
-alias rm="rm -r"
-alias cp="cp -r"
+# alias cd="cd -P"
+# alias rm="rm -r"
+# alias cp="cp -r"
 alias mkdir="mkdir -p"
 alias repro="source ~/.bash_profile"
+alias cpwd="echo -n $(pwd) | pbcopy"
 
 # ToDo.txt Aliases
 alias to='todo.sh -c'
