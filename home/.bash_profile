@@ -3,7 +3,7 @@
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,bash_prompt,exports,aliases,functions,extra,naiadrc,git_aliases,naiadrc}; do
+for file in ~/.{path,bash_prompt,exports,aliases,functions,extra,git_aliases,naiadrc}; do
 	[ -r "$file" ] && source "$file"
 done
 
@@ -35,17 +35,15 @@ complete -W "NSGlobalDomain" defaults
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "ProxyConfig Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall
 
-# If possible, add tab completion for many more commands
-[ -f /etc/bash_completion ] && source /etc/bash_completion
-
+# If
 if [ $(which brew) ]; then
-  if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    source $(brew --prefix)/etc/bash_completion
-  fi
+  [ -f $(brew --prefix)/etc/bash_completion ] && source $(brew --prefix)/etc/bash_completion
+else
+  [ -f /etc/bash_completion ] && source /etc/bash_completion
 fi
 
-if [ -f "$HOME/.rvm/scripts/rvm" ]; then
- source "$HOME/.rvm/scripts/rvm"
-fi
+# Ruby Version Manager
+[ -f "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
 
-[[ -s /Users/darylr/.nvm/nvm.sh ]] && . /Users/darylr/.nvm/nvm.sh # This loads NVM
+# Node Version Manager
+[[ -s "$HOME/.nvm/nvm.sh" ]] && . "$HOME/.nvm/nvm.sh"
