@@ -3,7 +3,7 @@
 	email = daryl.roberts@gmail.com
 
 [github]
-  user = sorahn
+  user = drbrts
   token = 187c29e80333e3a07c0193f547f17262
 
 [core]
@@ -29,14 +29,18 @@
 	d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
   dc = diff --cached
   df = diff
+  ks = difftool
+  ksc = difftool --cached
+  dno = diff --name-only
+  dns = diff --name-status
 
 	# `git di $number` shows the diff between the state `$number` revisions ago and the current state
 	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 
 	# Pull in remote changes for the current repository and all its submodules
 	p = !"git pull; git submodule foreach git pull origin master"
-  pom = !git fetch && git pull origin master
-  pob = !git fetch && git pull origin $(git symbolic-ref HEAD 2>/dev/null | sed 's|refs/heads/||')
+  pom = pull origin master
+  pob = !git pull origin $(git cb)
 
 	# Clone a repository including all submodules
 	cl = clone --recursive
@@ -44,7 +48,7 @@
   # Cleanup
   hard = reset --hard
   dfq = clean -dfq
-  dump = !git clean -dfq && git reset --hard && git checkout master && git pull origin master
+  dump = !cd $(git root) && git dfq && git hard && git com && git mom
 
 	# Commits
   ca = !git add -A && git commit -av
@@ -59,6 +63,10 @@
 	go = checkout -B
   co = checkout
   com = checkout master
+
+  # Merging
+  ff = merge --ff-only
+  mom = merge origin master
 
 	# Show verbose output about tags, branches or remotes
 	tags = tag -l
@@ -81,13 +89,16 @@
 	# Interactive rebase with the given number of latest commits
 	reb = "!r() { git rebase -i HEAD~$1; }; r"
 
+  # Branching
+  br = branch
+
 [apply]
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
 
 [color]
 	# Use colors in Git commands that are capable of colored output when outputting to the terminal
-	ui = auto
+	ui = true
 
 [color "branch"]
 	current = yellow reverse
@@ -133,3 +144,22 @@
 
 [push]
 	default = matching
+
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[diff]
+  tool = Kaleidoscope
+
+[difftool]
+  prompt = false
+
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
+
+[mergetool]
+  prompt = false
+
+[merge]
+  tool = Kaleidoscope

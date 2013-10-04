@@ -10,7 +10,6 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
@@ -28,9 +27,7 @@ alias o="open"
 alias oo="open ."
 alias quack="ack -Qui"
 alias lack="ack -il"
-# alias cd="cd -P"
-# alias rm="rm -r"
-# alias cp="cp -r"
+alias rmr="rm -r"
 alias mkdir="mkdir -p"
 alias repro="source ~/.bash_profile"
 alias cpwd="echo -n $(pwd) | pbcopy"
