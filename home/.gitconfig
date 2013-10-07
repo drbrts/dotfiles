@@ -63,6 +63,7 @@
 	go = checkout -B
   co = checkout
   com = checkout master
+  comp = !git com && git fetch && git mom
 
   # Merging
   ff = merge --ff-only
