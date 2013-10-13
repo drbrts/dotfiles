@@ -76,6 +76,7 @@
   cb = !git symbolic-ref HEAD | sed s,refs/heads/,,
   repo = !git rev-parse --show-toplevel 2>/dev/null | sed s,$HOME/src/,,
   st = status
+  root = !git rev-parse --show-toplevel
 
   # Stashes
   sl = stash list
@@ -92,6 +93,7 @@
 
   # Branching
   br = branch
+  short = log -n1 --format=%h
 
 [apply]
 	# Detect whitespace errors when applying a patch

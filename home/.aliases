@@ -19,10 +19,6 @@ alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
 alias h="history"
 alias v="vim"
-alias s="subl"
-alias sn="subl -n"
-alias sb="subl -b"
-alias sa="subl -a"
 alias o="open"
 alias oo="open ."
 alias quack="ack -Qui"
@@ -31,7 +27,19 @@ alias rmr="rm -r"
 alias mkdir="mkdir -p"
 alias repro="source ~/.bash_profile"
 alias cpwd="echo -n $(pwd) | pbcopy"
+alias inet="ifconfig | grep -v 127 | grep netmask | grep inet"
 
+# Sublime Text
+alias s="subl"
+alias sn="subl -n"
+alias sb="subl -b"
+alias sa="subl -a"
+
+#Onkyo
+alias macmini="onkyo SLI05"
+alias appletv="onkyo SLI01"
+alias xbox360="onkyo SLI02"
+alias mute="onkyo AMTTG"
 # ToDo.txt Aliases
 alias to='todo.sh -c'
 alias tad='to add'
