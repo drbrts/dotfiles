@@ -39,8 +39,8 @@
 
 	# Pull in remote changes for the current repository and all its submodules
 	p = !"git pull; git submodule foreach git pull origin master"
-  pom = pull origin master
-  pob = !git pull origin $(git cb)
+  pom = !git fetch && git pull origin master
+  pob = !git fetch && git pull origin $(git cb)
 
 	# Clone a repository including all submodules
 	cl = clone --recursive
@@ -76,7 +76,7 @@
   cb = !git symbolic-ref HEAD | sed s,refs/heads/,,
   repo = !git rev-parse --show-toplevel 2>/dev/null | sed s,$HOME/src/,,
   st = status
-  root = !git rev-parse --show-toplevel
+  root = rev-parse --show-toplevel
 
   # Stashes
   sl = stash list
