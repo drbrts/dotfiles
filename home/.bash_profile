@@ -3,10 +3,16 @@
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,exports,aliases,functions,bash_prompt,extra,git_aliases}; do
-	[ -r "$file" ] && source "$file"
+for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 
+# Extra files I want to load
+for file in ~/.{git_aliases}; do
+  [ -r "$file" ] && source "$file"
+done
+
+# Naiad RC for work.
 [ -f ~/src/users/darylr/.naiadrc ] && source ~/src/users/darylr/.naiadrc
 
 unset file
