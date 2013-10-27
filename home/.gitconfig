@@ -68,6 +68,7 @@
   # Merging
   ff = merge --ff-only
   mom = merge origin master
+  rmm = !git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d
 
 	# Show verbose output about tags, branches or remotes
 	tags = tag -l
