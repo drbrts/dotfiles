@@ -8,8 +8,8 @@ for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
 done
 
 # Extra files I want to load
-for file in ~/.{git_aliases}; do
-  [ -r "$file" ] && source "$file"
+for file in ~/.{git_aliases,fcirc}; do
+  [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 
 # Naiad RC for work.

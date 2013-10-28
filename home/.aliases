@@ -31,6 +31,7 @@ alias mkdir="mkdir -p"
 alias repro="source ~/.bash_profile"
 alias cpwd="echo -n $(pwd) | pbcopy"
 alias inet="ifconfig | grep -v 127 | grep netmask | grep inet"
+alias homeshick="source $HOME/.homesick/repos/homeshick/bin/homeshick.sh"
 
 # Sublime Text
 alias s="subl"
