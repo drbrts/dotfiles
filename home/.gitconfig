@@ -1,6 +1,6 @@
 [user]
-	name = Daryl Roberts
-	email = daryl.roberts@gmail.com
+  name = Daryl Roberts
+  email = daryl.roberts@gmail.com
 
 [github]
   user = drbrts
@@ -18,39 +18,42 @@
   pager = cat
 
 [alias]
-	# View the SHA, description, and history graph of the latest 20 commits
-	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  # View the SHA, description, and history graph of the latest 20 commits
+  l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
   # View the current working tree status using the short format
-	s  = status -s
-	st = status
+  s  = status -s
+  st = status
 
   # Show the diff between the latest commit and the current state
-	d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
+  d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
   dc = diff --cached
   df = diff
   ks = difftool
   ksc = difftool --cached
   dno = diff --name-only
   dns = diff --name-status
+  dom = diff origin/master
+  domns = diff origin/master --name-status
+  domno = diff origin/master --name-only
 
-	# `git di $number` shows the diff between the state `$number` revisions ago and the current state
-	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+  # `git di $number` shows the diff between the state `$number` revisions ago and the current state
+  di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 
-	# Pull in remote changes for the current repository and all its submodules
-	p = !"git pull; git submodule foreach git pull origin master"
+  # Pull in remote changes for the current repository and all its submodules
+  p = !"git pull; git submodule foreach git pull origin master"
   pom = !git fetch && git pull origin master
   pob = !git fetch && git pull origin $(git cb)
 
-	# Clone a repository including all submodules
-	cl = clone --recursive
+  # Clone a repository including all submodules
+  cl = clone --recursive
 
   # Cleanup
   hard = reset --hard
   dfq = clean -dfq
   dump = !cd $(git root) && git dfq && git hard && git com && git mom
 
-	# Commits
+  # Commits
   ca = !git add -A && git commit -av
   cam = "!f(){ git commit -am \"$@ ($(git cb))\"; }; f"
   ci = commit
@@ -59,8 +62,8 @@
   cim = "!f(){ git commit -m \"$@ ($(git cb))\"; }; f"
   cma = commit --amend
 
-	# Switch to a branch, creating it if necessary
-	go = checkout -B
+  # Switch to a branch, creating it if necessary
+  go = checkout -B
   co = checkout
   com = checkout master
   comp = !git com && git fetch && git mom
@@ -68,12 +71,13 @@
   # Merging
   ff = merge --ff-only
   mom = merge origin master
+  rom = rebase origin/master
   rmm = !git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d
 
-	# Show verbose output about tags, branches or remotes
-	tags = tag -l
-	branches = branch -a
-	remotes = remote -v
+  # Show verbose output about tags, branches or remotes
+  tags = tag -l
+  branches = branch -a
+  remotes = remote -v
   cb = !git symbolic-ref HEAD | sed s,refs/heads/,,
   repo = !git rev-parse --show-toplevel 2>/dev/null | sed s,$HOME/src/,,
   st = status
@@ -86,68 +90,68 @@
   # Show files ignored by git:
   ign = ls-files -o -i --exclude-standard
 
-	# Credit an author on the latest commit
-	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
+  # Credit an author on the latest commit
+  credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 
-	# Interactive rebase with the given number of latest commits
-	reb = "!r() { git rebase -i HEAD~$1; }; r"
+  # Interactive rebase with the given number of latest commits
+  reb = "!r() { git rebase -i HEAD~$1; }; r"
 
   # Branching
   br = branch
   short = log -n1 --format=%h
 
 [apply]
-	# Detect whitespace errors when applying a patch
-	whitespace = fix
+  # Detect whitespace errors when applying a patch
+  whitespace = nowarn
 
 [color]
-	# Use colors in Git commands that are capable of colored output when outputting to the terminal
-	ui = true
+  # Use colors in Git commands that are capable of colored output when outputting to the terminal
+  ui = true
 
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
 
 [merge]
-	# Include summaries of merged commits in newly created merge commit messages
-	log = true
+  # Include summaries of merged commits in newly created merge commit messages
+  log = true
 
 # Use `origin` as the default remote on the `master` branch in all cases
 [branch "master"]
-	remote = origin
-	merge = refs/heads/master
+  remote = origin
+  merge = refs/heads/master
 
 # URL shorthands
 [url "git@github.com:"]
-	insteadOf = "gh:"
-	pushInsteadOf = "github:"
-	pushInsteadOf = "git://github.com/"
+  insteadOf = "gh:"
+  pushInsteadOf = "github:"
+  pushInsteadOf = "git://github.com/"
 
 [url "git://github.com/"]
-	insteadOf = "github:"
+  insteadOf = "github:"
 
 [url "git@gist.github.com:"]
-	insteadOf = "gst:"
-	pushInsteadOf = "gist:"
-	pushInsteadOf = "git://gist.github.com/"
+  insteadOf = "gst:"
+  pushInsteadOf = "gist:"
+  pushInsteadOf = "git://gist.github.com/"
 
 [url "git://gist.github.com/"]
-	insteadOf = "gist:"
+  insteadOf = "gist:"
 
 [push]
-	default = matching
+  default = matching
 
 [difftool "Kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
