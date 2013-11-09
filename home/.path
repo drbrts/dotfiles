@@ -4,6 +4,7 @@
 PATH="/Applications/Xcode5-DP.app/Contents/Developer/usr/bin:$PATH"
 PATH="/usr/local/share/npm/bin:$PATH"
 PATH="/usr/local/bin:$PATH"
+PATH="$HOME/.homesick/repos/drbrts/dotfiles/bin:$PATH"
 PATH="$HOME/src/users/darylr/bin:$PATH"
 
 

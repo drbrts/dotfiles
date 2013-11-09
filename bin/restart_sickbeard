@@ -1,0 +1,5 @@
+#!/bin/bash
+
+launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.sickbeard.plist
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.sickbeard.plist
+
