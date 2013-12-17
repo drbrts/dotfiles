@@ -63,7 +63,8 @@
   cma = commit --amend
 
   # Switch to a branch, creating it if necessary
-  go = checkout -B
+  # go = checkout -B
+  go = "!f(){ (git show-ref -q \"$1\" && git checkout \"$1\" ) || git checkout -b \"$1\"; }; f"
   co = checkout
   com = checkout master
   comp = !git com && git fetch && git mom
