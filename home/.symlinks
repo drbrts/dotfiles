@@ -1,0 +1,3 @@
+ln -s ~/Dropbox/Sync/sickbeard /usr/local/etc/sickbeard
+ln -s ~/Dropbox/Sync/CouchPotato "~/Library/Application Support/CouchPotato"
+ln -s ~/Dropbox/Sync/SABnzbd "~/Library/Application Support/SABnzbd"
