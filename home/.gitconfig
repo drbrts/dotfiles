@@ -71,6 +71,7 @@
 
   # Merging
   ff = merge --ff-only
+  nf = merge --no-ff
   mom = merge origin master
   rom = rebase origin/master
   rmm = !git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d
