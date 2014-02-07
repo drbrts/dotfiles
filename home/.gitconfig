@@ -1,6 +1,6 @@
 [user]
-  name = Daryl Roberts
-  email = daryl.roberts@gmail.com
+	name = Daryl Roberts
+	email = d@rbrts.io
 
 [github]
   user = drbrts
@@ -73,7 +73,7 @@
   ff = merge --ff-only
   nf = merge --no-ff
   mom = merge origin master
-  rom = rebase origin/master
+  rom = !git fetch && git rebase origin/master
   rmm = !git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d
 
   # Show verbose output about tags, branches or remotes
@@ -126,11 +126,6 @@
   changed = green
   untracked = cyan
 
-[merge]
-  # Include summaries of merged commits in newly created merge commit messages
-  log = true
-
-# Use `origin` as the default remote on the `master` branch in all cases
 [branch "master"]
   remote = origin
   merge = refs/heads/master
@@ -155,21 +150,22 @@
 [push]
   default = matching
 
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 [difftool "Kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-
-[diff]
-  tool = Kaleidoscope
-
-[difftool]
-  prompt = false
-
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [mergetool "Kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-  trustExitCode = true
-
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[diff]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
 [mergetool]
-  prompt = false
-
+	prompt = false
 [merge]
-  tool = Kaleidoscope
+	tool = Kaleidoscope
