@@ -51,6 +51,7 @@
   # Cleanup
   hard = reset --hard
   dfq = clean -dfq
+  dmp = !git dump
   dump = !cd $(git root) && git dfq && git hard && git com && git mom
 
   # Commits
