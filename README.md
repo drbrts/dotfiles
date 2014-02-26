@@ -9,10 +9,20 @@ Shamelessly stolen from [Mathias Bynes](https://github.com/mathiasbynens/dotfile
 * [Dropbox](https://www.dropbox.com/home)
 
 ### Using [Homesick](https://github.com/technicalpickles/homesick).
+
 ```bash
-gem install homesick
-homesick clone sorahn/dotfiles
-homesick symlink sorahn/dotfiles
+$ gem install homesick
+$ homesick clone drbrts/dotfiles
+$ homesick symlink dotfiles
+```
+### Install [Homebrew](https://brew.sh)
+```bash
+$ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+```
+
+### Install [RVM](https://rvm.io)
+```bash
+$ \curl -sSL https://get.rvm.io | bash -s stable --ruby
 ```
 
 You can clone the repository wherever you want. (I like to keep it in `~/Projects/dotfiles`, with `~/dotfiles` as a symlink.) The bootstrapper script will pull in the latest version and copy the files to your home folder.
