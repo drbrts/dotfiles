@@ -52,7 +52,7 @@
   hard = reset --hard
   dfq = clean -dfq
   dmp = !git dump
-  dump = !cd $(git root) && git dfq && git hard && git com && git mom
+  dump = !cd $(git root) && git dfq && git hard && git com && git pom
 
   # Commits
   ca = !git add -A && git commit -av
