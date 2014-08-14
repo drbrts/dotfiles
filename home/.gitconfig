@@ -8,11 +8,11 @@
 
 [core]
   # Use custom `.gitignore` and `.gitattributes`
-  excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
 
   # Treat spaces before tabs, lines that are indented with 8 or more spaces, and all kinds of trailing whitespace as an error
-  whitespace = space-before-tab,indent-with-non-tab,trailing-space
+  whitespace = space-before-tab,trailing-space
 
   # Change the pager to `cat`
   pager = cat
@@ -68,6 +68,7 @@
   go = "!f(){ (git show-ref -q \"$1\" && git checkout \"$1\" ) || git checkout -b \"$1\"; }; f"
   co = checkout
   com = checkout master
+  coh = checkout HEAD
   comp = !git com && git fetch && git mom
 
   # Merging
@@ -157,6 +158,7 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [mergetool "Kaleidoscope"]
