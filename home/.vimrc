@@ -3,7 +3,7 @@ filetype plugin indent on
 set backspace=indent,eol,start
 set wrap
 set lbr
-set expandtab 
+set expandtab
 set tabstop=2
 set scs
 set textwidth=78
@@ -13,7 +13,7 @@ set laststatus=2
 set title
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme base16-solarized
 set ruler
 set nu
 set showmode
