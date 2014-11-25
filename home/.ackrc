@@ -19,6 +19,7 @@
 
 --ignore-dir=.idea/
 --ignore-dir=node_modules/
+--ignore-dir=dist/
 
 --type-add=utf8=.utf8
 
