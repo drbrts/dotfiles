@@ -36,6 +36,7 @@
   dom = diff origin/master
   domns = diff origin/master --name-status
   domno = diff origin/master --name-only
+  bdiff = !git diff $(git merge-base $(git cb) master) $(git cb)
   bdno = !git dno $(git merge-base $(git cb) master) $(git cb)
   bdns = !git dns $(git merge-base $(git cb) master) $(git cb)
 
