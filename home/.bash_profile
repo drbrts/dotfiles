@@ -11,11 +11,11 @@ done
 for file in ~/.{git_aliases,fcirc}; do
   [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
+unset file
+
 
 # Naiad RC for work.
 [ -f ~/src/users/darylr/.naiadrc ] && source ~/src/users/darylr/.naiadrc
-
-unset file
 
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob

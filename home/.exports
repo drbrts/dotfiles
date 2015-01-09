@@ -30,3 +30,10 @@ export GREP_OPTIONS="--color=auto"
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# Flush my bash history before each command, so that I have all history from
+# all terminals saved forever!
+#
+# http://northernmost.org/blog/flush-bash_history-after-each-command/
+export PROMPT_COMMAND='history -a'
+

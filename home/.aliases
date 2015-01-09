@@ -40,6 +40,7 @@ alias s="subl"
 alias sn="subl -n"
 alias sb="subl -b"
 alias sa="subl -a"
+alias sw="subl -w"
 
 #Onkyo
 alias macmini="onkyo SLI05"

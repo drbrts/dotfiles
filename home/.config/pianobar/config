@@ -26,7 +26,7 @@
 #act_songnext = n
 #act_songpause = S
 #act_songpausetoggle = p
-#act_songpausetoggle2 =  
+#act_songpausetoggle2 =
 #act_songplay = P
 #act_quit = q
 #act_stationrename = r
@@ -66,5 +66,6 @@
 
 
 user = daryl.roberts@gmail.com
-autostart_station = 2173954635254825713
+password = Ch4ng3m3>
+autostart_station = 2425722448460481265
 audio_quality = high
