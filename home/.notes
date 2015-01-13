@@ -1,0 +1,15 @@
+
+# Mavericks start FTP
+sudo -s launchctl load -w /System/Library/LaunchDaemons/ftp.plist
+
+# Mavericks stop FTP
+sudo -s launchctl unload -w /System/Library/LaunchDaemons/ftp.plist
+
+# sorahn.net
+# - nginx congif
+#   /etc/nginx/sites-enabled
+#
+#  Start nginx
+#  * cd /etc/rc?.d/; # ? = current runleveil
+#  * sudo ln -s ../init.d nginx S??nginx; # ?? = same place apache was
+#  * mv S??apache2 K??apache2; #Kill apache when entering this runlevel  
