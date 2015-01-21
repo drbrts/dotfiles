@@ -1,5 +1,19 @@
 #!/bin/bash
 
+
+# Create a new directory, and initialize an empty git repo, and push it to
+# gitlab.  There needs to be a git lab project already created first.
+function mkgitlab () {
+	mkdir $1
+	cd $1
+	git init
+	touch README.md
+	git commit -am "#yolo"
+	git remote add origin git@gitlab.com:sorahn/$1.git
+	git push -u origin master
+}
+
+
 # Map
 function map() {
   eval xargs -I{} "$@" {}
@@ -318,3 +332,6 @@ function np() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX
 }
+
+
+
