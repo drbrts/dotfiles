@@ -333,5 +333,6 @@ function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX
 }
 
-
-
+function npmfi() {
+	npm install --reg https://registry.npmjs.org --always-auth false $@
+}
