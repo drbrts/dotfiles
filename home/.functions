@@ -8,7 +8,8 @@ function mkgitlab () {
 	cd $1
 	git init
 	touch README.md
-	git commit -am "#yolo"
+	git add README.md
+	git commit -m "#yolo"
 	git remote add origin git@gitlab.com:sorahn/$1.git
 	git push -u origin master
 }
