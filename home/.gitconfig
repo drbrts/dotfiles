@@ -52,7 +52,7 @@
   cl = clone --recursive
 
   # Gitlab Clone
-  clab = "!f(){ git clone git@gitlab.com:sorahn/$1.git; }; f"
+  clab = "!f(){ git clone git@gitlab.com:${2:-sorahn}/$1.git; }; f"
 
   # Cleanup
   hard = reset --hard
