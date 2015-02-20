@@ -1,6 +1,11 @@
 #!/bin/bash
 
 
+# Copy the current directory
+function cpwd() {
+	echo -n $(pwd) | pbcopy
+}
+
 # Create a new directory, and initialize an empty git repo, and push it to
 # gitlab.  There needs to be a git lab project already created first.
 function mkgitlab () {
