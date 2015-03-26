@@ -54,5 +54,11 @@ export RESET
 # }
 
 # export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\]\n\$ \[$RESET\]"
-export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\w\[$PURPLE\]\$(__git_ps1)\[$WHITE\]\n\$ \[$RESET\]"
+titlebar="\[\033]0;\W\007\]"
+whowhich="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h"
+where="\[$WHITE\]in \[$GREEN\]\w"
+gitstatus="\[$PURPLE\]\$(__git_ps1)"
+caboose="\[$WHITE\]\n\$ \[$RESET\]"
+
+export PS1="${titlebar}${whowhich} ${where}${gitstatus} ${caboose}"
 export PS2="\[$ORANGE\]→ \[$RESET\]"

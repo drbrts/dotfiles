@@ -1,11 +1,12 @@
-#ack is a tool like grep, designed for programmers with large trees of heterogeneous source code
+# ack is a tool like grep, designed for programmers with large trees of
+# heterogeneous source code
 
-#to install ack, see http://betterthangrep.com/
-#to use ack, launch terminal (mac osx) and type 'ack <some_keywords>'
-#ack will search all files in the current directory & sub-directories
+# to install ack, see http://betterthangrep.com/
+# to use ack, launch terminal (mac osx) and type 'ack <some_keywords>'
+# ack will search all files in the current directory & sub-directories
 
-#here's how I have my config file setup. this file is located on mac osx here
-# ~/.ackrc 
+# here's how I have my config file setup.
+# this file is located on mac osx here ~/.ackrc
 
 # Always sort the files
 #--sort−files
@@ -19,19 +20,16 @@
 
 --ignore-dir=.idea/
 --ignore-dir=node_modules/
+--ignore-dir=bower_components/
 --ignore-dir=dist/
 
+# Utf8 files.
 --type-add=utf8=.utf8
 
-#make sure ack knows how to search common filetypes used in rails projects
---type-add=css=scss
+#make sure ack knows how to search common preprocessor filetypes
+--type-add=css=.scss
 --type-add=ruby=.haml,.rselm,.feature,.ru,.lock
 --type-set=coffeescript=.coffee
 --type-set=coffee=.coffee
-
-#make sure ack knows how to search common filetypes used in node.js projects
---ignore-dir=node_modules
---type-set=coffee=.coffee
 --type-set=jade=.jade
---type-set=feature=.feature
 --type-set=json=.json
