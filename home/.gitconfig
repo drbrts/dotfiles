@@ -3,7 +3,7 @@
 	email = daryl.roberts@gmail.com
 
 [github]
-  user = drbrts
+  user = sorahn
   token = 559c9cc8fb5b0e086efa60d5df8851e0b8660dc7
 
 [core]
@@ -50,6 +50,9 @@
 
   # Clone a repository including all submodules
   cl = clone --recursive
+
+  # Gitlab Clone
+  clab = "!f(){ git clone git@gitlab.com:${2:-sorahn}/$1.git; }; f"
 
   # Cleanup
   hard = reset --hard

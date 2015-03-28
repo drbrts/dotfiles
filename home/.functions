@@ -1,6 +1,11 @@
 #!/bin/bash
 
 
+# Copy the current directory
+function cpwd() {
+	echo -n $(pwd) | pbcopy
+}
+
 # Create a new directory, and initialize an empty git repo, and push it to
 # gitlab.  There needs to be a git lab project already created first.
 function mkgitlab () {
@@ -8,7 +13,8 @@ function mkgitlab () {
 	cd $1
 	git init
 	touch README.md
-	git commit -am "#yolo"
+	git add README.md
+	git commit -m "#yolo"
 	git remote add origin git@gitlab.com:sorahn/$1.git
 	git push -u origin master
 }
