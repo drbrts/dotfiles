@@ -1,21 +1,26 @@
 [user]
-	name = Daryl Roberts
-	email = daryl.roberts@gmail.com
-
-[github]
-  user = sorahn
-  token = 559c9cc8fb5b0e086efa60d5df8851e0b8660dc7
+  name = Daryl Roberts
+  email = daryl.roberts@gmail.com
 
 [core]
   # Use custom `.gitignore` and `.gitattributes`
-	excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
 
-  # Treat spaces before tabs, lines that are indented with 8 or more spaces, and all kinds of trailing whitespace as an error
+  # Treat spaces before tabs, lines that are indented with 8 or more spaces,
+  # and all kinds of trailing whitespace as an error
   whitespace = space-before-tab,trailing-space
 
   # Change the pager to `cat`
   pager = cat
+
+# Github Token
+[include]
+  path = ~/Dropbox/Sync/.github_config
+
+# Work Configs
+[include]
+  path = ~/src/users/darylr/.gitconfig
 
 [alias]
   # View the SHA, description, and history graph of the latest 20 commits
@@ -36,9 +41,13 @@
   dom = diff origin/master
   domns = diff origin/master --name-status
   domno = diff origin/master --name-only
-  bdiff = !git diff $(git merge-base $(git cb) master) $(git cb)
-  bdno = !git dno $(git merge-base $(git cb) master) $(git cb)
-  bdns = !git dns $(git merge-base $(git cb) master) $(git cb)
+
+
+  cb = !git symbolic-ref HEAD | sed s,refs/heads/,,
+  bbase = !git merge-base $(git cb) master
+  bdiff = !git diff $(git bbase) $(git cb)
+  bdno = !git dno $(git bbase) $(git cb)
+  bdns = !git dns $(git bbase) $(git cb)
 
   # `git di $number` shows the diff between the state `$number` revisions ago and the current state
   di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
@@ -52,13 +61,14 @@
   cl = clone --recursive
 
   # Gitlab Clone
-  clab = "!f(){ git clone git@gitlab.com:${2:-sorahn}/$1.git; }; f"
+  labclone = "!f(){ git clone git@gitlab.com:${2:-sorahn}/$1.git; }; f"
 
   # Cleanup
   hard = reset --hard
   dfq = clean -dfq
   dmp = !git dump
   dump = !cd $(git root) && git dfq && git hard && git com && git pom
+  restart = !git reset --hard origin/$(git cb)
 
   # Commits
   ca = !git add -A && git commit -av
@@ -68,6 +78,8 @@
   cin = commit --no-edit
   cim = "!f(){ git commit -m \"$@ ($(git cb))\"; }; f"
   cma = commit --amend
+  fup = "!f(){ git commit -m \"fixup! $@\"; }; f"
+
 
   # Switch to a branch, creating it if necessary
   # go = checkout -B
@@ -83,12 +95,16 @@
   mom = merge origin master
   rom = !git fetch && git rebase origin/master
   rmm = !git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d
+  ri = !EDITOR='/usr/local/bin/subl -w' git rebase -i
+  rib = !git ri $(git bbase)
+  swim = !git ri origin/master
+  smash = !EDITOR=less git rebase -i HEAD --autosquash
 
   # Show verbose output about tags, branches or remotes
   tags = tag -l
   branches = branch -a
   remotes = remote -v
-  cb = !git symbolic-ref HEAD | sed s,refs/heads/,,
+  project = !git remote -v | head -n 1 | cut -f 4 -d "/"
   repo = !git rev-parse --show-toplevel 2>/dev/null | sed s,$HOME/src/,,
   st = status
   root = rev-parse --show-toplevel
@@ -109,6 +125,7 @@
   # Branching
   br = branch
   short = log -n1 --format=%h
+
 
 [apply]
   # Detect whitespace errors when applying a patch
@@ -156,25 +173,31 @@
   insteadOf = "gist:"
 
 [push]
-  default = matching
+  default = simple
 
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
+
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
 
 [difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
 [mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
+
 [diff]
-	tool = Kaleidoscope
+  tool = Kaleidoscope
+
 [difftool]
-	prompt = false
+  prompt = false
+
 [mergetool]
-	prompt = false
+  prompt = false
+
 [merge]
-	tool = Kaleidoscope
+  tool = Kaleidoscope
