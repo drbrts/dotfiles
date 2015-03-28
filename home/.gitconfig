@@ -14,12 +14,11 @@
   # Change the pager to `cat`
   pager = cat
 
-# Github Token
 [include]
-  path = ~/Dropbox/Sync/.github_config
+  # Github Token
+  path = ~/Dropbox/Sync/.gitconfig
 
-# Work Configs
-[include]
+  # Work Configs
   path = ~/src/users/darylr/.gitconfig
 
 [alias]
