@@ -1,6 +1,10 @@
 #!/bin/bash
 
 
+function fack() {
+	find . | ack $@
+}
+
 # Copy the current directory
 function cpwd() {
 	echo -n $(pwd) | pbcopy
@@ -342,3 +346,14 @@ function tre() {
 function npmfi() {
 	npm install --reg https://registry.npmjs.org --always-auth false $@
 }
+
+
+
+# Fancy color coding.
+# https://felixcrux.com/blog/syntax-highlighting-cat
+function pygmentize_cat {
+  for arg in "$@"; do
+    pygmentize -g "${arg}" 2> /dev/null || /bin/cat "${arg}"
+  done
+}
+command -v pygmentize > /dev/null && alias cat=pygmentize_cat
