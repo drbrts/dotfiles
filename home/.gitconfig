@@ -76,8 +76,8 @@
   cia = commit -a
   cin = commit --no-edit
   cim = "!f(){ git commit -m \"$@ ($(git cb))\"; }; f"
+  fix = "!f(){ git commit -m \"fixup! $(date) ($(git cb))\"; }; f"
   cma = commit --amend
-  fup = "!f(){ git commit -m \"fixup! $@\"; }; f"
 
 
   # Switch to a branch, creating it if necessary
@@ -111,6 +111,7 @@
   # Stashes
   sl = stash list
   sp = stash pop
+  save = !git stash save "$(date)"
 
   # Show files ignored by git:
   ign = ls-files -o -i --exclude-standard
