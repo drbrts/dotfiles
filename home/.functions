@@ -1,8 +1,14 @@
 #!/bin/bash
 
+function rebow() {
+	rm -r bower_components
+	rm -r node_modules
+	bower install
+	npm install
+}
 
 function fack() {
-	find . | ack $@
+	find . | ack --nocolor $@
 }
 
 # Copy the current directory

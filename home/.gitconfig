@@ -40,7 +40,8 @@
   dom = diff origin/master
   domns = diff origin/master --name-status
   domno = diff origin/master --name-only
-
+  changed = !git dno --diff-filter=AMRC
+  cchanged = !git changed --cached
 
   cb = !git symbolic-ref HEAD | sed s,refs/heads/,,
   bbase = !git merge-base $(git cb) master
@@ -94,7 +95,7 @@
   mom = merge origin master
   rom = !git fetch && git rebase origin/master
   rmm = !git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d
-  ri = !EDITOR='/usr/local/bin/subl -w' git rebase -i
+  ri = !EDITOR='/usr/local/bin/subl -w' git rebase --autosquash -i
   rib = !git ri $(git bbase)
   swim = !git ri origin/master
   smash = !EDITOR=less git rebase -i HEAD --autosquash
